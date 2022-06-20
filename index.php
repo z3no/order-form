@@ -23,7 +23,16 @@ function whatIsHappening() {
 
 // TODO: provide some products (you may overwrite the example)
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Crispy Chicken Skin', 'price' => 3.5],
+    ['name' => 'Bacon Mac & Cheese', 'price' => 3.9],
+    ['name' => 'Martino Sandwich', 'price' => 3.9],
+    ['name' => 'Doritos Nacho Cheese', 'price' => 3.5],
+    ['name' => 'Dürüm with Garlic Sauce', 'price' => 3.5],
+    ['name' => 'Chavroux & Bugles Nacho Cheese', 'price' => 3.5],
+    ['name' => 'Spanish Melon with Jamon Ibérico', 'price' => 4.5],
+    ['name' => 'Chocolate Strawberry', 'price' => 3.9],
+    ['name' => 'Seasalt Caramel Popcorn', 'price' => 3.5],
+    ['name' => 'Maple Bacon Donuts', 'price' => 3.9]
 ];
 
 $totalValue = 0;
