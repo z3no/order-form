@@ -38,60 +38,92 @@ $products = [
 $totalValue = 0;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    //CHECK IF THE INPUT FIELD IS EMPTY, IF IT'S EMPTY SHOW AN ERROR
     if (empty($_POST["email"])) {
-        $emailError = "Required field!";
+        $emailError =
+            '<div class="alert alert-danger" role="alert">
+                    E-mail is a required field!
+                </div>';
     } else {
         $email = test_input($_POST["email"]);
         //CHECK IF THE EMAIL ADDRESS IS WELL FORMED
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailError = "You gave an invalid email!";
+            $emailError =
+                '<div class="alert alert-danger" role="alert">
+                    You gave an invalid email!
+                </div>';
         }
     }
 
+    //CHECK IF THE INPUT FIELD IS EMPTY, IF IT'S EMPTY SHOW AN ERROR
     if (empty($_POST["street"])) {
-        $streetError = "Required field!";
+        $streetError =
+            '<div class="alert alert-danger" role="alert">
+                    Street is a required field!
+                </div>';
     } else {
         $street = test_input($_POST["street"]);
         //CHECK IF THE STREET NAME ONLY CONTAINS LETTERS AND WHITESPACE
         if (!preg_match("/^[a-zA-Z-' ]*$/", $street)) {
-            $streetError = "Only letters and whitspace please!";
+            $streetError =
+                '<div class="alert alert-danger" role="alert">
+                    Only use letters and whitespace!
+                </div>';
         }
     }
 
+    //CHECK IF THE INPUT FIELD IS EMPTY, IF IT'S EMPTY SHOW AN ERROR
     if (empty($_POST["streetnumber"])) {
-        $numberError = "Required field!";
+        $numberError =
+            '<div class="alert alert-danger" role="alert">
+                    Street number is a required field!
+            </div>';
     } else {
         $streetnumber = test_input($_POST["streetnumber"]);
     }
 
+    //CHECK IF THE INPUT FIELD IS EMPTY, IF IT'S EMPTY SHOW AN ERROR
     if (empty($_POST["city"])) {
-        $cityError = "Required field!";
+        $cityError =
+            '<div class="alert alert-danger" role="alert">
+                    City is a required field!
+            </div>';
     } else {
         $city = test_input($_POST["city"]);
         //CHECK IF THE CITY'S NAME ONLY CONTAINS LETTERS AND WHITESPACE
         if (!preg_match("/^[a-zA-Z-' ]*$/", $city)) {
-            $cityError = "Only letters and whitspace please!";
+            $cityError =
+                '<div class="alert alert-danger" role="alert">
+                    Only use letters and whitespace!
+                </div>';
         }
     }
 
+    //CHECK IF THE INPUT FIELD IS EMPTY, IF IT'S EMPTY SHOW AN ERROR
     if (empty($_POST["zipcode"])) {
-        $zipError = "Required field!";
+        $zipError =
+            '<div class="alert alert-danger" role="alert">
+                    Zip Code is a required field!
+                </div>';
     } else {
-        $zipcode = test_input($_POST["zipcode"]);
+        $zipCode = test_input($_POST["zipcode"]);
         //CHECK IF THE ZIPCODE ONLY CONTAINS NUMBERS
-        if (!preg_match("/^[0-9]*$/", $zipcode)) {
-            $zipError = "Only numbers please";
+        if (!preg_match("/^\d*$/", $zipCode)) {
+            $zipError =
+                '<div class="alert alert-danger" role="alert">
+                    Only numbers are allowed!
+                </div>';
         }
     }
 }
 
-function test_input($data) {
+function test_input($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
-
 
 /*
 function validate()
