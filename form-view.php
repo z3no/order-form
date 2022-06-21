@@ -27,10 +27,17 @@
         </ul>
     </nav>
     */ ?>
-    <form method="post">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
+                <span class="error">*
+                    <?php
+                        if (isset($emailError)){
+                            echo $emailError;
+                        }
+                    ?>
+                </span>
                 <input type="email" id="email" name="email" class="form-control"/>
             </div>
             <div></div>
@@ -42,20 +49,48 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
+                    <span class="error">*
+                        <?php
+                            if (isset($streetError)) {
+                                echo $streetError;
+                            }
+                        ?>
+                    </span>
                     <input type="text" name="street" id="street" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="streetnumber">Street number:</label>
+                    <span class="error">*
+                        <?php
+                            if (isset($numberError)) {
+                                echo $numberError;
+                            }
+                        ?>
+                    </span>
                     <input type="text" id="streetnumber" name="streetnumber" class="form-control">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
+                    <span class="error">*
+                        <?php
+                            if (isset($cityError)) {
+                                echo $cityError;
+                            }
+                        ?>
+                    </span>
                     <input type="text" id="city" name="city" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
+                    <span class="error">*
+                        <?php
+                            if (isset($zipError)) {
+                                echo $zipError;
+                            }
+                        ?>
+                    </span>
                     <input type="text" id="zipcode" name="zipcode" class="form-control">
                 </div>
             </div>
@@ -71,13 +106,18 @@
             <?php endforeach; ?>
         </fieldset>
 
-        <button type="submit" class="btn btn-primary">Order!</button>
+        <button type="submit" name="submit" value="Submit" class="btn btn-primary">Order!</button>
     </form>
 
-    <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</footer>
+    <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in drinks that taste like food.</footer>
 </div>
 
 <style>
+    .error {
+        color: red;
+        font-size: 11px;
+    }
+
     footer {
         text-align: center;
     }
