@@ -20,8 +20,8 @@ Learning challenge from BeCode
   - [x] Required fields are not empty
   - [x] Zip code are only numbers
   - [x] Email address is valid
-- [ ] Show any problems (like empty or invalid date) with the fields at the top of the form. We can use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
-- [ ] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
+- [x] Show any problems (like empty or invalid date) with the fields at the top of the form. We can use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
+- [x] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
 
 ### Step 3 / Improve U(ser)(e)X(perience) by saving user data
 - [ ] Check out the possibilities of the PHP session and cookies.
