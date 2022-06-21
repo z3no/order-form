@@ -17,9 +17,9 @@ Learning challenge from BeCode
 
 ### Step 2 / Validation
 - We will use PHP to check the following:
-  - [ ] Required fields are not empty
-  - [ ] Zip code are only numbers
-  - [ ] Email address is valid
+  - [x] Required fields are not empty
+  - [x] Zip code are only numbers
+  - [x] Email address is valid
 - [ ] Show any problems (like empty or invalid date) with the fields at the top of the form. We can use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
 - [ ] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
 
