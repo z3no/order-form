@@ -31,14 +31,8 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <span class="error">*
-                    <?php
-                        if (isset($emailError)){
-                            echo $emailError;
-                        }
-                    ?>
-                </span>
-                <input type="email" id="email" name="email" class="form-control"/>
+                <?php if (isset($emailError)){ echo $emailError; } ?>
+                <input type="email" id="email" name="email" class="form-control" value="<?php if (isset($email)) { echo $email; } ?>"/>
             </div>
             <div></div>
         </div>
@@ -49,49 +43,25 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
-                    <span class="error">*
-                        <?php
-                            if (isset($streetError)) {
-                                echo $streetError;
-                            }
-                        ?>
-                    </span>
-                    <input type="text" name="street" id="street" class="form-control">
+                    <?php if (isset($streetError)) { echo $streetError; } ?>
+                    <input type="text" name="street" id="street" class="form-control" value="<?php if (isset($street)) { echo $street; } ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="streetnumber">Street number:</label>
-                    <span class="error">*
-                        <?php
-                            if (isset($numberError)) {
-                                echo $numberError;
-                            }
-                        ?>
-                    </span>
-                    <input type="text" id="streetnumber" name="streetnumber" class="form-control">
+                    <?php if (isset($numberError)) { echo $numberError; } ?>
+                    <input type="text" id="streetnumber" name="streetnumber" class="form-control" value="<?php if (isset($streetnumber)) { echo $streetnumber; } ?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
-                    <span class="error">*
-                        <?php
-                            if (isset($cityError)) {
-                                echo $cityError;
-                            }
-                        ?>
-                    </span>
-                    <input type="text" id="city" name="city" class="form-control">
+                    <?php if (isset($cityError)) { echo $cityError; } ?>
+                    <input type="text" id="city" name="city" class="form-control" value="<?php if (isset($city)) { echo $city; } ?>">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="zipcode">Zipcode</label>
-                    <span class="error">*
-                        <?php
-                            if (isset($zipError)) {
-                                echo $zipError;
-                            }
-                        ?>
-                    </span>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control">
+                    <label for="zipcode">Zip Code</label>
+                    <?php if (isset($zipError)) { echo $zipError; } ?>
+                    <input type="text" id="zipcode" name="zipcode" class="form-control" value="<?php if (isset($zipCode)) { echo $zipCode; } ?>">
                 </div>
             </div>
         </fieldset>
@@ -106,18 +76,27 @@
             <?php endforeach; ?>
         </fieldset>
 
-        <button type="submit" name="submit" value="Submit" class="btn btn-primary">Order!</button>
+        <button type="submit" name="submit" class="btn btn-primary">Order!</button>
     </form>
+
+    <?php
+
+    echo "<h2>Order Confirmation:</h2>";
+    if(isset($street, $streetnumber, $zipCode, $city)) {
+        echo "<p>Your shipping address is: 
+                <ul>
+                    <li>$street, $streetnumber</li>
+                    <li>$zipCode $city</li>
+                </ul>
+              </p>";
+    }
+
+    ?>
 
     <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in drinks that taste like food.</footer>
 </div>
 
 <style>
-    .error {
-        color: red;
-        font-size: 11px;
-    }
-
     footer {
         text-align: center;
     }
