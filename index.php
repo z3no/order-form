@@ -37,10 +37,69 @@ $products = [
 
 $totalValue = 0;
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (empty($_POST["email"])) {
+        $emailError = "Required field!";
+    } else {
+        $email = test_input($_POST["email"]);
+        //CHECK IF THE EMAIL ADDRESS IS WELL FORMED
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailError = "You gave an invalid email!";
+        }
+    }
+
+    if (empty($_POST["street"])) {
+        $streetError = "Required field!";
+    } else {
+        $street = test_input($_POST["street"]);
+        //CHECK IF THE STREET NAME ONLY CONTAINS LETTERS AND WHITESPACE
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $street)) {
+            $streetError = "Only letters and whitspace please!";
+        }
+    }
+
+    if (empty($_POST["streetnumber"])) {
+        $numberError = "Required field!";
+    } else {
+        $streetnumber = test_input($_POST["streetnumber"]);
+    }
+
+    if (empty($_POST["city"])) {
+        $cityError = "Required field!";
+    } else {
+        $city = test_input($_POST["city"]);
+        //CHECK IF THE CITY'S NAME ONLY CONTAINS LETTERS AND WHITESPACE
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $city)) {
+            $cityError = "Only letters and whitspace please!";
+        }
+    }
+
+    if (empty($_POST["zipcode"])) {
+        $zipError = "Required field!";
+    } else {
+        $zipcode = test_input($_POST["zipcode"]);
+        //CHECK IF THE ZIPCODE ONLY CONTAINS NUMBERS
+        if (!preg_match("/^[0-9]*$/", $zipcode)) {
+            $zipError = "Only numbers please";
+        }
+    }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
+/*
 function validate()
 {
     // TODO: This function will send a list of invalid fields back
+
     return [];
+
 }
 
 function handleForm()
@@ -48,12 +107,12 @@ function handleForm()
     // TODO: form related tasks (step 1)
 
     // Validation (step 2)
-    $invalidFields = validate();
-    if (!empty($invalidFields)) {
+    //$invalidFields = validate();
+    //if (!empty($invalidFields)) {
         // TODO: handle errors
-    } else {
+    //} else {
         // TODO: handle successful submission
-    }
+    //}
 }
 
 // TODO: replace this if by an actual check
@@ -61,5 +120,5 @@ $formSubmitted = false;
 if ($formSubmitted) {
     handleForm();
 }
-
+*/
 require 'form-view.php';
