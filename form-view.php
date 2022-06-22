@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"
           rel="stylesheet"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
     <title>Tastes like...</title>
 </head>
 <body>
@@ -81,15 +82,16 @@
 
     <?php
 
-    echo "<h2>Order Confirmation:</h2>";
     if(isset($street, $streetnumber, $zipCode, $city)) {
+        echo "<h2>Order Confirmation:</h2>";
         echo "<p>Your shipping address is: 
                 <ul>
                     <li>$street, $streetnumber</li>
                     <li>$zipCode $city</li>
                 </ul>
               </p>";
-        echo "You have selected the following " . $checked_count . " drink(s): <br/>" . implode("</br>", $arrayDrinks) ;
+        echo "<p>You have selected the following $checked_count drink(s): <br/>";
+        echo "<div class='drinks'><div>" . implode("</br>", $arrayDrinks) . "</div><div>" . implode("</br>", $arrayDrinksPrices) . "</div></div>";
     }
 
     ?>

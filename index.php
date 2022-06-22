@@ -118,6 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     //GET DATA FROM CHECKBOXES
     $arrayDrinks = [];
+    $arrayDrinksPrices = [];
     if (!empty($_POST['products'])) {
         // COUNTING THE NUMBER OF CHECKED CHECKBOXES
         $checked_count = count($_POST['products']);
@@ -125,7 +126,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // LOOP TO STORE AND DISPLAY VALUES OF INDIVIDUAL CHECKED CHECKBOXES
         foreach ($_POST['products'] as $value){
             //var_dump($value);
-            array_push($arrayDrinks, $products[$value]['name'], $products[$value]['price']);
+            array_push($arrayDrinks, $products[$value]['name']);
+            array_push($arrayDrinksPrices, $products[$value]['price']);
             //$value . "</br>";
             //var_dump($arrayDrinks);
         }
