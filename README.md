@@ -12,7 +12,7 @@ Learning challenge from BeCode
 - [x] Last step, check if all the products & prices are currently visible in the form.
 
 ### Step 1 / Accepting orders
-- [ ] When the user submits the form, an order confirmation is shown. It should contain all the chosen products and the delivery address.
+- [x] When the user submits the form, an order confirmation is shown. It should contain all the chosen products and the delivery address.
 - We will learn how to save all this information to a database later on, so we don't need to do it at this step.
 
 ### Step 2 / Validation
@@ -24,10 +24,29 @@ Learning challenge from BeCode
 - [ ] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
 
 ### Step 3 / Improve U(ser)(e)X(perience) by saving user data
-- [ ] Check out the possibilities of the PHP session and cookies.
+- [x] Check out the possibilities of the PHP session and cookies.
 - [ ] We want to prefill the address (you can just use any previous user input, we don't need to get data from anywhere else), as long as the browser isn't closed. Which of these techniques is the better choice here?
+  > I think in our case it's best to work with Sessions.
+
+Let's look up some information about what php session and cookies actually are:
+#### PHP Sessions
+- A session is a way to store information (in variables) to be used across multiple pages. Unlike a cookie, the information is not stored on the users computer.
+- Session variables hold information about one single user, and are available to all pages in one application.
+- A session is started with the session_start() function.
+- Session variables are set with the PHP global variable: $_SESSION.
+- Some more explanation and examples on Session you can find [here](https://www.phptutorial.net/php-tutorial/php-session/)
+
+#### PHP Cookies
+- A cookie is a small file that the server embeds on the user's computer. Each time the same computer requests a page with a browser, it will send the cookie too.
+- A cookie is created with the setcookie() function.
+- Syntax:
+```setcookie(name, value, expire, path, domain, secure, httponly);```
+- Some more explanation [here](https://www.phptutorial.net/php-tutorial/php-cookies/)
+
 
 > When you use cookies on a live site, be sure to check any legal requirements.
+
+***
 
 ## 🌼 Nice-to-have features (doable)
 
@@ -43,6 +62,8 @@ Learning challenge from BeCode
 ### Step 3 / The look & feel
 - [ ] Let's think about what kind of style we want for our store. Add a color scheme and a suitable font.
 - [ ] Check what you can do for validation with html and JS. Use this to improve our validation.
+
+***
 
 ## 🌳 Nice-to-have features (hard)
 
