@@ -21,7 +21,7 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
-whatIsHappening();
+//whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
 $products = [
