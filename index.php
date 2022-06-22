@@ -133,6 +133,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+    $totalValue = array_sum($arrayDrinksPrices);
+
 }
 
 function test_input($data)
