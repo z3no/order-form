@@ -115,6 +115,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>';
         }
     }
+
+    //GET DATA FROM CHECKBOXES
+    $arrayDrinks = [];
+    if (!empty($_POST['products'])) {
+        // COUNTING THE NUMBER OF CHECKED CHECKBOXES
+        $checked_count = count($_POST['products']);
+
+        // LOOP TO STORE AND DISPLAY VALUES OF INDIVIDUAL CHECKED CHECKBOXES
+        foreach ($_POST['products'] as $value){
+            //var_dump($value);
+            array_push($arrayDrinks, $products[$value]['name'], $products[$value]['price']);
+            //$value . "</br>";
+            //var_dump($arrayDrinks);
+        }
+    }
+
 }
 
 function test_input($data)
