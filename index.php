@@ -21,6 +21,8 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
+whatIsHappening();
+
 // TODO: provide some products (you may overwrite the example)
 $products = [
     ['name' => 'Crispy Chicken Skin', 'price' => 3.5],
@@ -52,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 '<div class="alert alert-danger" role="alert">
                     You gave an invalid email!
                 </div>';
+            $email = null;
         }
     }
 
@@ -69,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 '<div class="alert alert-danger" role="alert">
                     Only use letters and whitespace!
                 </div>';
+            $street = null;
         }
     }
 
@@ -96,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 '<div class="alert alert-danger" role="alert">
                     Only use letters and whitespace!
                 </div>';
+            $city = null;
         }
     }
 
@@ -113,6 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 '<div class="alert alert-danger" role="alert">
                     Only numbers are allowed!
                 </div>';
+            $zipCode = null;
         }
     }
 
